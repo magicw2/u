@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowthPulse Analytics | Professional Social Media Analysis</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4bb543;
+            --warning: #ffcc00;
+            --danger: #dc3545;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fb;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: -5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(rgba(67, 97, 238, 0.05), rgba(58, 12, 163, 0.05));
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--gray);
+        }
+        
+        .pro-badge {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+        }
+        
+        /* Input Section */
+        .input-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-row {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .url-input {
+            flex: 1;
+        }
+        
+        .platform-select {
+            width: 180px;
+        }
+        
+        label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+            color: var(--dark);
+        }
+        
+        input, select {
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+        
+        .analyze-btn {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 auto;
+        }
+        
+        .analyze-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(67, 97, 238, 0.3);
+        }
+        
+        .analyze-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        .analyze-btn:active {
+            transform: translateY(0);
+        }
+        
+        .sample-link {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .sample-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .sample-link a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Platform Detection */
+        .platform-detected {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            color: #2e7d32;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+            text-align: center;
+            display: none;
+        }
+        
+        /* Loading Animation */
+        .loader {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            animation: rotation 1s linear infinite;
+        }
+        
+        @keyframes rotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Error Message */
+        .error-message {
+            background: #fee;
+            border: 1px solid #fcc;
+            color: #c33;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+            display: none;
+        }
+        
+        /* Analysis Status */
+        .analysis-status {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            color: #1565c0;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+            display: none;
+        }
+        
+        /* Report Section */
+        .report-section {
+            display: none;
+            margin-top: 3rem;
+            padding-bottom: 4rem;
+        }
+        
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .report-title {
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+        
+        .download-btn {
+            background: white;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--light-gray);
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Summary Tab */
+        .health-score {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            position: relative;
+        }
+        
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+        }
+        
+        .score-value {
+            position: relative;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .score-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .key-takeaways {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .takeaway-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .takeaway-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .strength .icon {
+            color: var(--success);
+        }
+        
+        .weakness .icon {
+            color: var(--danger);
+        }
+        
+        /* Analysis Tab - Your requested style */
+        .professional-metrics {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .metrics-table th, .metrics-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .metrics-table th {
+            background: var(--light);
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .metrics-table tr:hover {
+            background: rgba(67, 97, 238, 0.02);
+        }
+        
+        .metric-trend {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .trend-up {
+            background: rgba(76, 175, 80, 0.1);
+            color: var(--success);
+        }
+        
+        .trend-down {
+            background: rgba(220, 53, 69, 0.1);
+            color: var(--danger);
+        }
+        
+        .trend-neutral {
+            background: rgba(255, 204, 0, 0.1);
+            color: var(--warning);
+        }
+        
+        .chart-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .chart-placeholder {
+            height: 300px;
+            background: var(--light-gray);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+        }
+        
+        /* Growth Plan Tab */
+        .phase {
+            margin-bottom: 2.5rem;
+        }
+        
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .phase-number {
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        
+        .phase-title {
+            font-size: 1.4rem;
+            color: var(--secondary);
+        }
+        
+        .phase-timeline {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-left: auto;
+        }
+        
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .step-number {
+            background: var(--light-gray);
+            color: var(--dark);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .step-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .step-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .step-action, .step-reason {
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .step-action {
+            background: rgba(67, 97, 238, 0.05);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .step-reason {
+            background: rgba(76, 201, 240, 0.05);
+            border-left: 4px solid var(--accent);
+        }
+        
+        .step-action h4, .step-reason h4 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .input-row {
+                flex-direction: column;
+            }
+            
+            .platform-select {
+                width: 100%;
+            }
+            
+            .step-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <h1>Growth<span>Pulse</span></h1>
+                    <div class="tagline">Professional Social Media Analytics</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Analysis</a></li>
+                        <li><a href="#">Solutions</a></li>
+                        <li><a href="#">Resources</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="pro-badge">PROFESSIONAL SOCIAL MEDIA ANALYTICS</div>
+            <h2>Data-Driven Social Media Growth Strategy</h2>
+            <p>Get comprehensive analytics and professional growth strategies to optimize your social media performance and maximize engagement.</p>
+            
+            <div class="input-section">
+                <div class="input-group">
+                    <div class="input-row">
+                        <div class="url-input">
+                            <label for="profile-url">Enter Social Media Profile URL</label>
+                            <input type="text" id="profile-url" placeholder="https://youtube.com/c/username or https://instagram.com/username">
+                        </div>
+                        <div class="platform-select">
+                            <label for="platform">Select Platform (Auto-detected)</label>
+                            <select id="platform" disabled>
+                                <option value="auto">Auto-detect from URL</option>
+                                <option value="youtube">YouTube</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="tiktok">TikTok</option>
+                                <option value="twitter">X (Twitter)</option>
+                                <option value="linkedin">LinkedIn</option>
+                                <option value="facebook">Facebook</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="platform-detected" class="platform-detected">
+                    <!-- Platform detection message will appear here -->
+                </div>
+                
+                <button class="analyze-btn" id="analyze-btn">
+                    <span id="analyze-text">Generate Professional Analysis</span>
+                    <div id="analyze-loader" class="loader" style="display: none;"></div>
+                </button>
+                <div class="sample-link">
+                    <a href="#" id="sample-youtube">Try YouTube Analysis</a> | 
+                    <a href="#" id="sample-instagram">Try Instagram Analysis</a>
+                </div>
+                
+                <div id="error-message" class="error-message"></div>
+                <div id="analysis-status" class="analysis-status"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Section -->
+    <section class="report-section" id="report-section">
+        <div class="container">
+            <div class="report-header">
+                <h2 class="report-title" id="report-title">Professional Social Media Analysis</h2>
+                <button class="download-btn" id="download-btn">
+                    <span>Download Report</span>
+                </button>
+            </div>
+            
+            <div class="tabs">
+                <div class="tab active" data-tab="summary">Performance Summary</div>
+                <div class="tab" data-tab="analysis">In-Depth Analytics</div>
+                <div class="tab" data-tab="growth-plan">Strategic Growth Plan</div>
+            </div>
+            
+            <!-- Summary Tab -->
+            <div class="tab-content active" id="summary-tab">
+                <div class="health-score">
+                    <div class="score-circle" id="score-circle">
+                        <!-- Dynamic score circle will be inserted here -->
+                    </div>
+                    <div class="score-text" id="score-text">Performance Analysis Complete</div>
+                </div>
+                
+                <div class="key-takeaways" id="key-takeaways">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+            </div>
+            
+            <!-- Analysis Tab - Your requested style -->
+            <div class="tab-content" id="analysis-tab">
+                <div class="professional-metrics">
+                    <h3>Performance Metrics Overview</h3>
+                    <table class="metrics-table">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Current Value</th>
+                                <th>Benchmark</th>
+                                <th>Trend</th>
+                                <th>Insight</th>
+                            </tr>
+                        </thead>
+                        <tbody id="metrics-table-body">
+                            <!-- Dynamic metrics will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>Engagement Performance Analysis</h3>
+                    <div class="chart-placeholder" id="engagement-analysis">
+                        Professional engagement metrics and performance indicators
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>Content Strategy Effectiveness</h3>
+                    <div class="chart-placeholder" id="content-analysis">
+                        Content performance metrics and optimization opportunities
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Growth Plan Tab -->
+            <div class="tab-content" id="growth-plan-tab">
+                <div id="growth-plan-content">
+                    <!-- Dynamic growth plan will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const analyzeBtn = document.getElementById('analyze-btn');
+            const profileUrlInput = document.getElementById('profile-url');
+            const platformSelect = document.getElementById('platform');
+            const platformDetected = document.getElementById('platform-detected');
+            const sampleYoutube = document.getElementById('sample-youtube');
+            const sampleInstagram = document.getElementById('sample-instagram');
+            const reportSection = document.getElementById('report-section');
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const errorMessage = document.getElementById('error-message');
+            const analysisStatus = document.getElementById('analysis-status');
+            const analyzeText = document.getElementById('analyze-text');
+            const analyzeLoader = document.getElementById('analyze-loader');
+
+            // Platform detection from URL
+            profileUrlInput.addEventListener('input', function() {
+                const url = this.value.trim();
+                const detectedPlatform = detectPlatformFromUrl(url);
+                
+                if (detectedPlatform) {
+                    platformDetected.innerHTML = `
+                        <strong>Platform detected:</strong> ${detectedPlatform.toUpperCase()} 
+                        <span style="margin-left: 10px; font-size: 0.9em; color: #666;">
+                        Analysis will focus on ${detectedPlatform}-specific metrics</span>
+                    `;
+                    platformDetected.style.display = 'block';
+                    platformSelect.value = detectedPlatform;
+                } else {
+                    platformDetected.style.display = 'none';
+                    platformSelect.value = 'auto';
+                }
+            });
+
+            // Platform detection function - Only YouTube detection
+            function detectPlatformFromUrl(url) {
+                if (!url) return null;
+                
+                const urlLower = url.toLowerCase();
+                
+                // YouTube detection only
+                if (urlLower.includes('youtube.com') || 
+                    urlLower.includes('youtu.be') || 
+                    urlLower.includes('youtube.com/c/') ||
+                    urlLower.includes('youtube.com/@') ||
+                    urlLower.includes('youtube.com/channel/') ||
+                    urlLower.includes('youtube.com/user/')) {
+                    return 'youtube';
+                }
+                
+                return null;
+            }
+
+            // Analyze button click handler
+            analyzeBtn.addEventListener('click', function() {
+                const profileUrl = profileUrlInput.value.trim();
+                let platform = platformSelect.value;
+                
+                // If auto-detect, try to detect from URL
+                if (platform === 'auto') {
+                    platform = detectPlatformFromUrl(profileUrl);
+                    if (!platform) {
+                        showError('Please enter a valid YouTube URL. Only YouTube analysis is supported.');
+                        return;
+                    }
+                }
+                
+                // Force YouTube-only analysis
+                if (platform !== 'youtube') {
+                    showError('Only YouTube analysis is currently supported. Please enter a YouTube URL.');
+                    return;
+                }
+                
+                if (!profileUrl) {
+                    showError('Please enter a YouTube URL');
+                    return;
+                }
+
+                // Show loading state
+                analyzeBtn.disabled = true;
+                analyzeText.textContent = `Analyzing YouTube Channel...`;
+                analyzeLoader.style.display = 'inline-block';
+                hideError();
+                showStatus(`Starting YouTube analysis...`);
+
+                // Simulate analysis with realistic data
+                setTimeout(() => {
+                    try {
+                        const analysis = generateYouTubeAnalysis(profileUrl);
+                        displayAnalysisResults(analysis, profileUrl);
+                        
+                        // Show report section
+                        reportSection.style.display = 'block';
+                        reportSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        showStatus(`YouTube analysis complete!`);
+                        
+                    } catch (error) {
+                        console.error('Analysis error:', error);
+                        showError('Failed to generate analysis: ' + error.message);
+                    } finally {
+                        // Reset button state
+                        analyzeBtn.disabled = false;
+                        analyzeText.textContent = 'Generate Professional Analysis';
+                        analyzeLoader.style.display = 'none';
+                        setTimeout(() => hideStatus(), 3000);
+                    }
+                }, 2000);
+            });
+
+            // Sample YouTube analysis
+            sampleYoutube.addEventListener('click', function(e) {
+                e.preventDefault();
+                profileUrlInput.value = 'https://www.youtube.com/c/ProfessionalCreator';
+                platformSelect.value = 'youtube';
+                platformDetected.innerHTML = `
+                    <strong>Platform detected:</strong> YOUTUBE 
+                    <span style="margin-left: 10px; font-size: 0.9em; color: #666;">
+                    Analysis will focus on YouTube-specific metrics</span>
+                `;
+                platformDetected.style.display = 'block';
+                analyzeBtn.click();
+            });
+
+            // Sample Instagram analysis - Disabled
+            sampleInstagram.addEventListener('click', function(e) {
+                e.preventDefault();
+                showError('Only YouTube analysis is currently supported. Please use the YouTube sample.');
+                return;
+            });
+
+            // Tab switching
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+
+            // Download button
+            document.getElementById('download-btn').addEventListener('click', function() {
+                const reportTitle = document.getElementById('report-title').textContent;
+                const reportContent = document.getElementById('report-section').innerText;
+                
+                const blob = new Blob([`${reportTitle}\n\n${reportContent}`], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'youtube-channel-analysis.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+
+            // Generate YouTube-specific analysis
+            function generateYouTubeAnalysis(profileUrl) {
+                // YouTube-specific metrics
+                const metrics = {
+                    engagement_rate: (4.2 + Math.random() * 2.5).toFixed(1) + '%',
+                    avg_views: Math.floor(2500 + Math.random() * 7500).toLocaleString(),
+                    avg_likes: Math.floor(120 + Math.random() * 180),
+                    retention_rate: (52 + Math.random() * 28).toFixed(0) + '%',
+                    ctr: (4.8 + Math.random() * 3).toFixed(1) + '%',
+                    subscriber_growth: (3.5 + Math.random() * 4).toFixed(1) + '%',
+                    watch_time: (Math.floor(45 + Math.random() * 30)) + ' minutes',
+                    upload_consistency: (75 + Math.random() * 20).toFixed(0) + '%',
+                    comment_engagement: (2.1 + Math.random() * 1.5).toFixed(1) + '%',
+                    shares_per_video: Math.floor(15 + Math.random() * 25)
+                };
+                
+                return {
+                    profile_score: Math.floor(60 + Math.random() * 35),
+                    strengths: [
+                        "Strong video content strategy with high production quality",
+                        "Effective use of YouTube SEO and keyword optimization",
+                        "Consistent upload schedule maintaining audience engagement",
+                        "High audience retention rates indicating quality content",
+                        "Good subscriber growth momentum and community building"
+                    ],
+                    weaknesses: [
+                        "Limited use of YouTube Shorts for audience expansion",
+                        "Community tab underutilized for audience interaction",
+                        "Playlist organization could be optimized for viewer journey",
+                        "End screen and card usage could be more strategic",
+                        "Thumbnail A/B testing could improve click-through rates"
+                    ],
+                    metrics: metrics,
+                    platform: 'youtube',
+                    growth_strategy: {
+                        phase1: {
+                            title: "Content & SEO Optimization",
+                            timeline: "Weeks 1-4",
+                            steps: [
+                                {
+                                    title: "YouTube SEO Enhancement",
+                                    action: "Optimize video titles, descriptions, and tags using keyword research tools. Implement A/B testing for thumbnails.",
+                                    reason: "Improved SEO can increase organic reach by 40% and boost algorithm recommendations"
+                                },
+                                {
+                                    title: "Content Format Diversification",
+                                    action: "Develop YouTube Shorts strategy and optimize long-form content structure based on retention analytics.",
+                                    reason: "Format diversification captures different audience segments and increases overall watch time"
+                                }
+                            ]
+                        },
+                        phase2: {
+                            title: "Audience Growth & Monetization",
+                            timeline: "Weeks 5-8",
+                            steps: [
+                                {
+                                    title: "Strategic Collaboration Framework",
+                                    action: "Identify and partner with complementary YouTube creators for collabs, shoutouts, and community projects.",
+                                    reason: "Collaborations can increase subscriber growth by 65% and provide cross-audience exposure"
+                                },
+                                {
+                                    title: "Monetization Strategy Development",
+                                    action: "Optimize ad placement, develop affiliate marketing programs, and create digital products for audience.",
+                                    reason: "Diversified revenue streams increase channel sustainability and creator motivation"
+                                }
+                            ]
+                        },
+                        phase3: {
+                            title: "Performance Optimization & Scaling",
+                            timeline: "Weeks 9-12",
+                            steps: [
+                                {
+                                    title: "Advanced Analytics Implementation",
+                                    action: "Deploy advanced tracking and analytics to measure ROI, audience insights, and content performance.",
+                                    reason: "Data-driven optimization improves content effectiveness and maximizes advertising efficiency"
+                                },
+                                {
+                                    title: "Growth Scaling Strategy",
+                                    action: "Develop scalable growth framework including paid amplification, influencer partnerships, and platform expansion.",
+                                    reason: "Strategic scaling ensures sustainable growth while maintaining engagement quality"
+                                }
+                            ]
+                        }
+                    }
+                };
+            }
+
+            // Display analysis results
+            function displayAnalysisResults(analysis, profileUrl) {
+                // Update report title
+                const username = extractUsername(profileUrl, 'youtube');
+                document.getElementById('report-title').textContent = 
+                    `YouTube Professional Analysis: ${username}`;
+
+                // Update health score
+                updateHealthScore(analysis.profile_score);
+                
+                // Update key takeaways
+                updateKeyTakeaways(analysis.strengths, analysis.weaknesses);
+                
+                // Update metrics table
+                updateMetricsTable(analysis.metrics);
+                
+                // Update growth plan
+                updateGrowthPlan(analysis.growth_strategy);
+            }
+
+            // Helper functions
+            function extractUsername(profileUrl, platform) {
+                if (profileUrl.includes('youtube.com/c/')) {
+                    return '@' + profileUrl.split('/c/')[1];
+                }
+                if (profileUrl.includes('youtube.com/@')) {
+                    return '@' + profileUrl.split('/@')[1];
+                }
+                if (profileUrl.includes('youtube.com/channel/')) {
+                    return 'Channel: ' + profileUrl.split('/channel/')[1];
+                }
+                
+                try {
+                    const urlObj = new URL(profileUrl);
+                    const pathParts = urlObj.pathname.split('/').filter(part => part);
+                    if (pathParts.length > 0) {
+                        let username = pathParts[pathParts.length - 1];
+                        return `@${username}`;
+                    }
+                } catch (e) {
+                    return '@youtube_creator';
+                }
+                return '@youtube_channel';
+            }
+
+            function updateHealthScore(score) {
+                const scoreCircle = document.getElementById('score-circle');
+                const scoreText = document.getElementById('score-text');
+                
+                let color = '#4bb543'; // Default green
+                if (score < 70) color = '#ffcc00'; // Yellow
+                if (score < 50) color = '#dc3545'; // Red
+                
+                scoreCircle.innerHTML = `
+                    <div class="score-value">${score}</div>
+                `;
+                scoreCircle.style.background = `conic-gradient(${color} 0% ${score}%, var(--light-gray) ${score}% 100%)`;
+                
+                let text = '';
+                if (score >= 80) {
+                    text = 'Excellent Performance - YouTube Leader';
+                } else if (score >= 70) {
+                    text = 'Strong Performance - Competitive Edge';
+                } else if (score >= 60) {
+                    text = 'Good Performance - Growth Potential';
+                } else if (score >= 50) {
+                    text = 'Developing - Strategic Improvements Needed';
+                } else {
+                    text = 'Foundation Phase - Significant Opportunity';
+                }
+                
+                scoreText.textContent = text;
+                scoreText.style.color = color;
+            }
+
+            function updateKeyTakeaways(strengths, weaknesses) {
+                const takeawaysContainer = document.getElementById('key-takeaways');
+                
+                takeawaysContainer.innerHTML = `
+                    <div class="takeaway-card strength">
+                        <h3><span class="icon">✓</span> YouTube Strengths</h3>
+                        <ul>
+                            ${strengths.map(strength => `<li>${strength}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="takeaway-card weakness">
+                        <h3><span class="icon">⚠</span> YouTube Growth Opportunities</h3>
+                        <ul>
+                            ${weaknesses.map(weakness => `<li>${weakness}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            function updateMetricsTable(metrics) {
+                const metricsTableBody = document.getElementById('metrics-table-body');
+                
+                // YouTube-specific benchmarks
+                const benchmark = {
+                    engagement_rate: '4.8%',
+                    avg_views: '5,200',
+                    avg_likes: '180',
+                    retention_rate: '60%',
+                    ctr: '6.2%',
+                    subscriber_growth: '5.2%',
+                    watch_time: '55 minutes',
+                    upload_consistency: '80%',
+                    comment_engagement: '2.8%',
+                    shares_per_video: '25'
+                };
+                
+                const metricsConfig = [
+                    { label: 'Engagement Rate', key: 'engagement_rate', format: 'percent' },
+                    { label: 'Average Views', key: 'avg_views', format: 'number' },
+                    { label: 'Average Likes', key: 'avg_likes', format: 'number' },
+                    { label: 'Audience Retention', key: 'retention_rate', format: 'percent' },
+                    { label: 'Click-Through Rate', key: 'ctr', format: 'percent' },
+                    { label: 'Subscriber Growth', key: 'subscriber_growth', format: 'percent' },
+                    { label: 'Avg Watch Time', key: 'watch_time', format: 'text' },
+                    { label: 'Upload Consistency', key: 'upload_consistency', format: 'percent' },
+                    { label: 'Comment Engagement', key: 'comment_engagement', format: 'percent' },
+                    { label: 'Shares Per Video', key: 'shares_per_video', format: 'number' }
+                ];
+                
+                let html = '';
+                metricsConfig.forEach(item => {
+                    const currentValue = metrics[item.key];
+                    const benchmarkValue = benchmark[item.key];
+                    const trend = Math.random() > 0.5 ? 'up' : (Math.random() > 0.5 ? 'down' : 'neutral');
+                    const trendClass = `trend-${trend}`;
+                    const trendSymbol = trend === 'up' ? '↗' : (trend === 'down' ? '↘' : '→');
+                    
+                    let insight = '';
+                    if (trend === 'up') {
+                        insight = 'Positive momentum - maintain strategy';
+                    } else if (trend === 'down') {
+                        insight = 'Monitor closely - consider adjustments';
+                    } else {
+                        insight = 'Stable performance - opportunity for optimization';
+                    }
+                    
+                    html += `
+                        <tr>
+                            <td><strong>${item.label}</strong></td>
+                            <td>${currentValue}</td>
+                            <td>${benchmarkValue}</td>
+                            <td><span class="metric-trend ${trendClass}">${trendSymbol} ${trend}</span></td>
+                            <td>${insight}</td>
+                        </tr>
+                    `;
+                });
+                
+                metricsTableBody.innerHTML = html;
+            }
+
+            function updateGrowthPlan(growthStrategy) {
+                const growthPlanContent = document.getElementById('growth-plan-content');
+                
+                let html = '';
+                Object.keys(growthStrategy).forEach(phaseKey => {
+                    const phase = growthStrategy[phaseKey];
+                    html += `
+                        <div class="phase">
+                            <div class="phase-header">
+                                <div class="phase-number">${phaseKey.replace('phase', '')}</div>
+                                <h3 class="phase-title">${phase.title}</h3>
+                                <div class="phase-timeline">${phase.timeline}</div>
+                            </div>
+                            <div class="steps">
+                                ${phase.steps.map((step, index) => `
+                                    <div class="step">
+                                        <div class="step-header">
+                                            <div class="step-number">${index + 1}</div>
+                                            <div class="step-title">${step.title}</div>
+                                        </div>
+                                        <div class="step-content">
+                                            <div class="step-action">
+                                                <h4>Strategic Action</h4>
+                                                <p>${step.action}</p>
+                                            </div>
+                                            <div class="step-reason">
+                                                <h4>Business Impact</h4>
+                                                <p>${step.reason}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                growthPlanContent.innerHTML = html;
+            }
+
+            // Error and status handling
+            function showError(message) {
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block';
+            }
+
+            function hideError() {
+                errorMessage.style.display = 'none';
+            }
+
+            function showStatus(message) {
+                analysisStatus.textContent = message;
+                analysisStatus.style.display = 'block';
+            }
+
+            function hideStatus() {
+                analysisStatus.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
