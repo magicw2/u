@@ -485,47 +485,105 @@
             color: var(--gray);
         }
         
-        /* Growth Plan Tab */
+        /* Enhanced Growth Plan Styles */
+        .growth-plan-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .growth-plan-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .growth-plan-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
         .phase {
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
         }
         
         .phase-header {
+            background: var(--light);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--light-gray);
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--light-gray);
+            gap: 1.5rem;
         }
         
         .phase-number {
             background: var(--primary);
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .phase-title-content {
+            flex: 1;
         }
         
         .phase-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--secondary);
+            margin-bottom: 0.5rem;
         }
         
         .phase-timeline {
             font-size: 0.9rem;
             color: var(--gray);
-            margin-left: auto;
+            font-weight: 500;
+        }
+        
+        .phase-objectives {
+            background: rgba(67, 97, 238, 0.05);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .phase-objectives h4 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .objectives-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .objective {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
         
         .steps {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            padding: 2rem;
         }
         
         .step {
@@ -533,32 +591,38 @@
             padding: 1.5rem;
             border-radius: 10px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--light-gray);
         }
         
         .step-header {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--light-gray);
         }
         
         .step-number {
             background: var(--light-gray);
             color: var(--dark);
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            flex-shrink: 0;
         }
         
         .step-title {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--dark);
+            flex: 1;
         }
         
         .step-content {
@@ -568,7 +632,7 @@
         }
         
         .step-action, .step-reason {
-            padding: 1rem;
+            padding: 1.2rem;
             border-radius: 8px;
         }
         
@@ -583,8 +647,113 @@
         }
         
         .step-action h4, .step-reason h4 {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .metrics-impact {
+            background: rgba(75, 181, 67, 0.05);
+            padding: 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--success);
+            margin-top: 1rem;
+        }
+        
+        .metrics-impact h4 {
+            color: var(--success);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .metrics-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.8rem;
+        }
+        
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(75, 181, 67, 0.2);
+        }
+        
+        .metric-name {
+            font-weight: 500;
+        }
+        
+        .metric-value {
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        .tools-resources {
+            background: rgba(255, 204, 0, 0.05);
+            padding: 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--warning);
+            margin-top: 1rem;
+        }
+        
+        .tools-resources h4 {
+            color: var(--warning);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tools-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.8rem;
+        }
+        
+        .tool-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 204, 0, 0.2);
+        }
+        
+        /* Platform Icons */
+        .platform-icon {
+            width: 24px;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            margin-right: 8px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .youtube-icon {
+            background: #FF0000;
+        }
+        
+        .instagram-icon {
+            background: #E4405F;
+        }
+        
+        .tiktok-icon {
+            background: #000000;
+        }
+        
+        .twitter-icon {
+            background: #1DA1F2;
+        }
+        
+        .linkedin-icon {
+            background: #0A66C2;
+        }
+        
+        .facebook-icon {
+            background: #1877F2;
         }
         
         /* Responsive Design */
@@ -616,6 +785,20 @@
             
             .tab {
                 text-align: center;
+            }
+            
+            .phase-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .objectives-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .metrics-list, .tools-list {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -680,7 +863,8 @@
                 </button>
                 <div class="sample-link">
                     <a href="#" id="sample-youtube">Try YouTube Analysis</a> | 
-                    <a href="#" id="sample-instagram">Try Instagram Analysis</a>
+                    <a href="#" id="sample-instagram">Try Instagram Analysis</a> |
+                    <a href="#" id="sample-tiktok">Try TikTok Analysis</a>
                 </div>
                 
                 <div id="error-message" class="error-message"></div>
@@ -771,6 +955,7 @@
             const platformDetected = document.getElementById('platform-detected');
             const sampleYoutube = document.getElementById('sample-youtube');
             const sampleInstagram = document.getElementById('sample-instagram');
+            const sampleTiktok = document.getElementById('sample-tiktok');
             const reportSection = document.getElementById('report-section');
             const tabs = document.querySelectorAll('.tab');
             const tabContents = document.querySelectorAll('.tab-content');
@@ -779,16 +964,23 @@
             const analyzeText = document.getElementById('analyze-text');
             const analyzeLoader = document.getElementById('analyze-loader');
 
+            // Store analysis results to ensure consistency
+            let currentAnalysis = null;
+            let currentProfileUrl = null;
+
             // Platform detection from URL
             profileUrlInput.addEventListener('input', function() {
                 const url = this.value.trim();
                 const detectedPlatform = detectPlatformFromUrl(url);
                 
                 if (detectedPlatform) {
+                    const platformName = detectedPlatform.charAt(0).toUpperCase() + detectedPlatform.slice(1);
                     platformDetected.innerHTML = `
-                        <strong>Platform detected:</strong> ${detectedPlatform.toUpperCase()} 
+                        <strong>Platform detected:</strong> 
+                        <span class="platform-icon ${detectedPlatform}-icon">${platformName.charAt(0)}</span>
+                        ${platformName}
                         <span style="margin-left: 10px; font-size: 0.9em; color: #666;">
-                        Analysis will focus on ${detectedPlatform}-specific metrics</span>
+                        Analysis will focus on ${platformName}-specific metrics</span>
                     `;
                     platformDetected.style.display = 'block';
                     platformSelect.value = detectedPlatform;
@@ -798,13 +990,12 @@
                 }
             });
 
-            // Platform detection function - Only YouTube detection
+            // Platform detection function
             function detectPlatformFromUrl(url) {
                 if (!url) return null;
                 
                 const urlLower = url.toLowerCase();
                 
-                // YouTube detection only
                 if (urlLower.includes('youtube.com') || 
                     urlLower.includes('youtu.be') || 
                     urlLower.includes('youtube.com/c/') ||
@@ -812,6 +1003,33 @@
                     urlLower.includes('youtube.com/channel/') ||
                     urlLower.includes('youtube.com/user/')) {
                     return 'youtube';
+                }
+                
+                if (urlLower.includes('instagram.com') || 
+                    urlLower.includes('instagr.am')) {
+                    return 'instagram';
+                }
+                
+                if (urlLower.includes('tiktok.com') || 
+                    urlLower.includes('tiktok.com/@')) {
+                    return 'tiktok';
+                }
+                
+                if (urlLower.includes('twitter.com') || 
+                    urlLower.includes('x.com')) {
+                    return 'twitter';
+                }
+                
+                if (urlLower.includes('linkedin.com') || 
+                    urlLower.includes('linkedin.com/in/') ||
+                    urlLower.includes('linkedin.com/company/')) {
+                    return 'linkedin';
+                }
+                
+                if (urlLower.includes('facebook.com') || 
+                    urlLower.includes('fb.com') ||
+                    urlLower.includes('facebook.com/groups/')) {
+                    return 'facebook';
                 }
                 
                 return null;
@@ -826,40 +1044,44 @@
                 if (platform === 'auto') {
                     platform = detectPlatformFromUrl(profileUrl);
                     if (!platform) {
-                        showError('Please enter a valid YouTube URL. Only YouTube analysis is supported.');
+                        showError('Please enter a valid social media URL or select a platform manually');
                         return;
                     }
                 }
                 
-                // Force YouTube-only analysis
-                if (platform !== 'youtube') {
-                    showError('Only YouTube analysis is currently supported. Please enter a YouTube URL.');
-                    return;
-                }
-                
                 if (!profileUrl) {
-                    showError('Please enter a YouTube URL');
+                    showError('Please enter a social media URL');
                     return;
                 }
 
                 // Show loading state
                 analyzeBtn.disabled = true;
-                analyzeText.textContent = `Analyzing YouTube Channel...`;
+                analyzeText.textContent = `Analyzing ${platform.charAt(0).toUpperCase() + platform.slice(1)} Profile...`;
                 analyzeLoader.style.display = 'inline-block';
                 hideError();
-                showStatus(`Starting YouTube analysis...`);
+                showStatus(`Starting ${platform} analysis...`);
 
                 // Simulate analysis with realistic data
                 setTimeout(() => {
                     try {
-                        const analysis = generateYouTubeAnalysis(profileUrl);
-                        displayAnalysisResults(analysis, profileUrl);
+                        // Check if we already have an analysis for this URL
+                        if (currentProfileUrl === profileUrl && currentAnalysis) {
+                            // Use cached analysis
+                            displayAnalysisResults(currentAnalysis, profileUrl);
+                            showStatus(`Using cached analysis for ${platform}`);
+                        } else {
+                            // Generate new analysis
+                            const analysis = generateSocialMediaAnalysis(profileUrl, platform);
+                            currentAnalysis = analysis;
+                            currentProfileUrl = profileUrl;
+                            displayAnalysisResults(analysis, profileUrl);
+                        }
                         
                         // Show report section
                         reportSection.style.display = 'block';
                         reportSection.scrollIntoView({ behavior: 'smooth' });
                         
-                        showStatus(`YouTube analysis complete!`);
+                        showStatus(`${platform.charAt(0).toUpperCase() + platform.slice(1)} analysis complete!`);
                         
                     } catch (error) {
                         console.error('Analysis error:', error);
@@ -871,7 +1093,7 @@
                         analyzeLoader.style.display = 'none';
                         setTimeout(() => hideStatus(), 3000);
                     }
-                }, 2000);
+                }, 1500);
             });
 
             // Sample YouTube analysis
@@ -880,7 +1102,9 @@
                 profileUrlInput.value = 'https://www.youtube.com/c/ProfessionalCreator';
                 platformSelect.value = 'youtube';
                 platformDetected.innerHTML = `
-                    <strong>Platform detected:</strong> YOUTUBE 
+                    <strong>Platform detected:</strong> 
+                    <span class="platform-icon youtube-icon">Y</span>
+                    YOUTUBE 
                     <span style="margin-left: 10px; font-size: 0.9em; color: #666;">
                     Analysis will focus on YouTube-specific metrics</span>
                 `;
@@ -888,11 +1112,36 @@
                 analyzeBtn.click();
             });
 
-            // Sample Instagram analysis - Disabled
+            // Sample Instagram analysis
             sampleInstagram.addEventListener('click', function(e) {
                 e.preventDefault();
-                showError('Only YouTube analysis is currently supported. Please use the YouTube sample.');
-                return;
+                profileUrlInput.value = 'https://www.instagram.com/successfulcreator/';
+                platformSelect.value = 'instagram';
+                platformDetected.innerHTML = `
+                    <strong>Platform detected:</strong> 
+                    <span class="platform-icon instagram-icon">I</span>
+                    INSTAGRAM 
+                    <span style="margin-left: 10px; font-size: 0.9em; color: #666;">
+                    Analysis will focus on Instagram-specific metrics</span>
+                `;
+                platformDetected.style.display = 'block';
+                analyzeBtn.click();
+            });
+
+            // Sample TikTok analysis
+            sampleTiktok.addEventListener('click', function(e) {
+                e.preventDefault();
+                profileUrlInput.value = 'https://www.tiktok.com/@trendingcreator';
+                platformSelect.value = 'tiktok';
+                platformDetected.innerHTML = `
+                    <strong>Platform detected:</strong> 
+                    <span class="platform-icon tiktok-icon">T</span>
+                    TIKTOK 
+                    <span style="margin-left: 10px; font-size: 0.9em; color: #666;">
+                    Analysis will focus on TikTok-specific metrics</span>
+                `;
+                platformDetected.style.display = 'block';
+                analyzeBtn.click();
             });
 
             // Tab switching
@@ -919,115 +1168,430 @@
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = 'youtube-channel-analysis.txt';
+                a.download = 'social-media-analysis.txt';
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
                 URL.revokeObjectURL(url);
             });
 
-            // Generate YouTube-specific analysis
-            function generateYouTubeAnalysis(profileUrl) {
-                // YouTube-specific metrics
-                const metrics = {
-                    engagement_rate: (4.2 + Math.random() * 2.5).toFixed(1) + '%',
-                    avg_views: Math.floor(2500 + Math.random() * 7500).toLocaleString(),
-                    avg_likes: Math.floor(120 + Math.random() * 180),
-                    retention_rate: (52 + Math.random() * 28).toFixed(0) + '%',
-                    ctr: (4.8 + Math.random() * 3).toFixed(1) + '%',
-                    subscriber_growth: (3.5 + Math.random() * 4).toFixed(1) + '%',
-                    watch_time: (Math.floor(45 + Math.random() * 30)) + ' minutes',
-                    upload_consistency: (75 + Math.random() * 20).toFixed(0) + '%',
-                    comment_engagement: (2.1 + Math.random() * 1.5).toFixed(1) + '%',
-                    shares_per_video: Math.floor(15 + Math.random() * 25)
+            // Generate social media analysis
+            function generateSocialMediaAnalysis(profileUrl, platform) {
+                // Generate consistent analysis based on URL hash
+                const urlHash = hashCode(profileUrl);
+                const rng = createSeededRandom(urlHash);
+                
+                // Platform-specific metrics
+                const platformMetrics = {
+                    youtube: {
+                        engagement_rate: (4.2 + rng() * 2.5).toFixed(1) + '%',
+                        avg_views: Math.floor(2500 + rng() * 7500).toLocaleString(),
+                        avg_likes: Math.floor(120 + rng() * 180),
+                        retention_rate: (52 + rng() * 28).toFixed(0) + '%',
+                        ctr: (4.8 + rng() * 3).toFixed(1) + '%',
+                        subscriber_growth: (3.5 + rng() * 4).toFixed(1) + '%',
+                        watch_time: (Math.floor(45 + rng() * 30)) + ' minutes',
+                        upload_consistency: (75 + rng() * 20).toFixed(0) + '%',
+                        comment_engagement: (2.1 + rng() * 1.5).toFixed(1) + '%',
+                        shares_per_video: Math.floor(15 + rng() * 25)
+                    },
+                    instagram: {
+                        engagement_rate: (2.8 + rng() * 1.5).toFixed(1) + '%',
+                        avg_likes: Math.floor(350 + rng() * 650),
+                        avg_comments: Math.floor(15 + rng() * 25),
+                        reach_rate: (18 + rng() * 12).toFixed(0) + '%',
+                        follower_growth: (2.2 + rng() * 2.5).toFixed(1) + '%',
+                        story_views: Math.floor(800 + rng() * 1200),
+                        content_consistency: (70 + rng() * 25).toFixed(0) + '%',
+                        hashtag_performance: (65 + rng() * 25).toFixed(0) + '%',
+                        saves_per_post: Math.floor(25 + rng() * 35),
+                        shares_per_post: Math.floor(12 + rng() * 18)
+                    },
+                    tiktok: {
+                        engagement_rate: (5.2 + rng() * 3).toFixed(1) + '%',
+                        avg_views: Math.floor(5000 + rng() * 10000).toLocaleString(),
+                        avg_likes: Math.floor(800 + rng() * 1200),
+                        avg_comments: Math.floor(25 + rng() * 40),
+                        follower_growth: (4.5 + rng() * 5).toFixed(1) + '%',
+                        video_completion_rate: (65 + rng() * 25).toFixed(0) + '%',
+                        content_consistency: (60 + rng() * 30).toFixed(0) + '%',
+                        hashtag_performance: (70 + rng() * 20).toFixed(0) + '%',
+                        shares_per_video: Math.floor(35 + rng() * 45),
+                        trend_participation: (55 + rng() * 35).toFixed(0) + '%'
+                    }
+                };
+
+                const metrics = platformMetrics[platform] || platformMetrics.youtube;
+                
+                // Consistent score based on URL
+                const profileScore = Math.floor(60 + (rng() * 35));
+                
+                // Platform-specific strengths and weaknesses
+                const platformAnalysis = {
+                    youtube: {
+                        strengths: [
+                            "Strong video content strategy with high production quality",
+                            "Effective use of YouTube SEO and keyword optimization",
+                            "Consistent upload schedule maintaining audience engagement",
+                            "High audience retention rates indicating quality content",
+                            "Good subscriber growth momentum and community building"
+                        ],
+                        weaknesses: [
+                            "Limited use of YouTube Shorts for audience expansion",
+                            "Community tab underutilized for audience interaction",
+                            "Playlist organization could be optimized for viewer journey",
+                            "End screen and card usage could be more strategic",
+                            "Thumbnail A/B testing could improve click-through rates"
+                        ]
+                    },
+                    instagram: {
+                        strengths: [
+                            "Visually appealing content with strong brand identity",
+                            "Effective use of Instagram Stories for engagement",
+                            "Strategic hashtag usage increasing discoverability",
+                            "Consistent posting schedule maintaining visibility",
+                            "Good use of Reels for reaching new audiences"
+                        ],
+                        weaknesses: [
+                            "Limited use of Instagram Guides for content organization",
+                            "IGTV potential underutilized for long-form content",
+                            "Engagement with followers could be more personalized",
+                            "Shopping features not fully leveraged for monetization",
+                            "Analytics could be better utilized for content optimization"
+                        ]
+                    },
+                    tiktok: {
+                        strengths: [
+                            "Strong understanding of TikTok trends and algorithm",
+                            "Consistent posting frequency maintaining visibility",
+                            "Engaging video hooks capturing attention quickly",
+                            "Effective use of trending sounds and challenges",
+                            "Good community engagement through comments and duets"
+                        ],
+                        weaknesses: [
+                            "Limited use of TikTok LIVE for real-time engagement",
+                            "Bio and link optimization could be improved",
+                            "Cross-promotion to other platforms underutilized",
+                            "Video descriptions could be more optimized for SEO",
+                            "Collaboration opportunities with other creators missed"
+                        ]
+                    }
                 };
                 
+                const analysis = platformAnalysis[platform] || platformAnalysis.youtube;
+                
                 return {
-                    profile_score: Math.floor(60 + Math.random() * 35),
-                    strengths: [
-                        "Strong video content strategy with high production quality",
-                        "Effective use of YouTube SEO and keyword optimization",
-                        "Consistent upload schedule maintaining audience engagement",
-                        "High audience retention rates indicating quality content",
-                        "Good subscriber growth momentum and community building"
-                    ],
-                    weaknesses: [
-                        "Limited use of YouTube Shorts for audience expansion",
-                        "Community tab underutilized for audience interaction",
-                        "Playlist organization could be optimized for viewer journey",
-                        "End screen and card usage could be more strategic",
-                        "Thumbnail A/B testing could improve click-through rates"
-                    ],
+                    profile_score: profileScore,
+                    strengths: analysis.strengths,
+                    weaknesses: analysis.weaknesses,
                     metrics: metrics,
-                    platform: 'youtube',
-                    growth_strategy: {
-                        phase1: {
-                            title: "Content & SEO Optimization",
-                            timeline: "Weeks 1-4",
-                            steps: [
-                                {
-                                    title: "YouTube SEO Enhancement",
-                                    action: "Optimize video titles, descriptions, and tags using keyword research tools. Implement A/B testing for thumbnails.",
-                                    reason: "Improved SEO can increase organic reach by 40% and boost algorithm recommendations"
-                                },
-                                {
-                                    title: "Content Format Diversification",
-                                    action: "Develop YouTube Shorts strategy and optimize long-form content structure based on retention analytics.",
-                                    reason: "Format diversification captures different audience segments and increases overall watch time"
-                                }
-                            ]
-                        },
-                        phase2: {
-                            title: "Audience Growth & Monetization",
-                            timeline: "Weeks 5-8",
-                            steps: [
-                                {
-                                    title: "Strategic Collaboration Framework",
-                                    action: "Identify and partner with complementary YouTube creators for collabs, shoutouts, and community projects.",
-                                    reason: "Collaborations can increase subscriber growth by 65% and provide cross-audience exposure"
-                                },
-                                {
-                                    title: "Monetization Strategy Development",
-                                    action: "Optimize ad placement, develop affiliate marketing programs, and create digital products for audience.",
-                                    reason: "Diversified revenue streams increase channel sustainability and creator motivation"
-                                }
-                            ]
-                        },
-                        phase3: {
-                            title: "Performance Optimization & Scaling",
-                            timeline: "Weeks 9-12",
-                            steps: [
-                                {
-                                    title: "Advanced Analytics Implementation",
-                                    action: "Deploy advanced tracking and analytics to measure ROI, audience insights, and content performance.",
-                                    reason: "Data-driven optimization improves content effectiveness and maximizes advertising efficiency"
-                                },
-                                {
-                                    title: "Growth Scaling Strategy",
-                                    action: "Develop scalable growth framework including paid amplification, influencer partnerships, and platform expansion.",
-                                    reason: "Strategic scaling ensures sustainable growth while maintaining engagement quality"
-                                }
-                            ]
-                        }
+                    platform: platform,
+                    growth_strategy: getPlatformSpecificGrowthPlan(platform, profileScore)
+                };
+            }
+
+            // Get platform-specific growth plan
+            function getPlatformSpecificGrowthPlan(platform, score) {
+                const basePlan = {
+                    phase1: {
+                        title: "Foundation & Content Optimization",
+                        timeline: "Weeks 1-4",
+                        objectives: [
+                            "Establish consistent posting schedule",
+                            "Optimize profile and content for platform algorithms",
+                            "Build initial engagement momentum"
+                        ],
+                        steps: []
+                    },
+                    phase2: {
+                        title: "Audience Growth & Community Building",
+                        timeline: "Weeks 5-8", 
+                        objectives: [
+                            "Expand reach through strategic collaborations",
+                            "Deepen audience engagement and loyalty",
+                            "Implement data-driven content optimization"
+                        ],
+                        steps: []
+                    },
+                    phase3: {
+                        title: "Monetization & Scaling",
+                        timeline: "Weeks 9-12",
+                        objectives: [
+                            "Develop sustainable revenue streams",
+                            "Scale successful content strategies",
+                            "Build long-term brand authority"
+                        ],
+                        steps: []
                     }
+                };
+
+                // Platform-specific implementation
+                if (platform === 'youtube') {
+                    basePlan.phase1.steps = [
+                        {
+                            title: "YouTube SEO Optimization",
+                            action: "Conduct keyword research for your niche using TubeBuddy or VidIQ. Optimize video titles, descriptions, and tags with high-volume keywords. Create custom thumbnails that have a 5-7% CTR.",
+                            reason: "Proper SEO can increase organic reach by 40-60% and improve algorithm recommendations",
+                            metrics: [
+                                ["CTR Improvement", "40-60%"],
+                                ["Search Visibility", "50%+"],
+                                ["Watch Time", "25%+"]
+                            ],
+                            tools: ["TubeBuddy", "VidIQ", "Google Trends", "Canva for Thumbnails"]
+                        },
+                        {
+                            title: "Content Structure & Retention",
+                            action: "Analyze audience retention graphs to identify drop-off points. Implement the 'hook-hold-payoff' structure: strong opening (0-30s), value delivery (1-5min), and clear CTA. Add chapter timestamps for better navigation.",
+                            reason: "Improving retention by 10% can double your video's algorithmic performance",
+                            metrics: [
+                                ["Audience Retention", "10-15%"],
+                                ["Average View Duration", "20%+"],
+                                ["Session Watch Time", "30%+"]
+                            ],
+                            tools: ["YouTube Analytics", "Audience Retention Graphs", "Chapter Markers"]
+                        }
+                    ];
+                    
+                    basePlan.phase2.steps = [
+                        {
+                            title: "Strategic Collaboration Framework",
+                            action: "Identify 5-10 creators in your niche with similar audience size. Pitch collaboration ideas that provide mutual value. Co-create content that leverages both audiences' interests. Cross-promote on all platforms.",
+                            reason: "Collaborations can drive 65-80% subscriber growth and provide sustainable audience expansion",
+                            metrics: [
+                                ["Subscriber Growth", "65-80%"],
+                                ["Cross-Channel Traffic", "45%+"],
+                                ["Engagement Rate", "25%+"]
+                            ],
+                            tools: ["Social Blade", "Email Outreach", "Collaboration Management Tools"]
+                        },
+                        {
+                            title: "Community & Algorithm Engagement",
+                            action: "Implement the 1-hour engagement rule: spend first hour after upload responding to comments. Create pinned comment discussions. Use YouTube Community tab for polls and updates. Host monthly Q&A sessions.",
+                            reason: "Early engagement signals boost algorithm performance by 30-50% in first 24 hours",
+                            metrics: [
+                                ["Comment Engagement", "40%+"],
+                                ["Algorithm Boost", "30-50%"],
+                                ["Community Growth", "25%+"]
+                            ],
+                            tools: ["YouTube Studio", "Community Tab", "Scheduled Engagement Time"]
+                        }
+                    ];
+                    
+                    basePlan.phase3.steps = [
+                        {
+                            title: "Multi-Platform Monetization Strategy",
+                            action: "Diversify revenue with YouTube Partner Program, channel memberships, merchandise shelf, and affiliate marketing. Create digital products (courses, ebooks) for your niche. Explore brand deals with companies aligned with your audience.",
+                            reason: "Diversified income streams increase channel sustainability by 300% and reduce platform dependency",
+                            metrics: [
+                                ["Revenue Diversification", "300%+"],
+                                ["Brand Deal Value", "50%+"],
+                                ["Product Conversion", "3-5%"]
+                            ],
+                            tools: ["YouTube Studio Monetization", "Teespring/Merch", "Affiliate Networks"]
+                        },
+                        {
+                            title: "Content Scaling & Automation",
+                            action: "Develop content batch production system. Create template workflows for scripting, filming, and editing. Implement analytics-driven content planning. Build team or outsource repetitive tasks.",
+                            reason: "Systematic content production can increase output by 200% while maintaining quality",
+                            metrics: [
+                                ["Content Output", "200%+"],
+                                ["Production Efficiency", "60%+"],
+                                ["Team Scalability", "Ready for 2-3 hires"]
+                            ],
+                            tools: ["Project Management Tools", "Content Calendars", "Analytics Dashboards"]
+                        }
+                    ];
+                }
+                else if (platform === 'instagram') {
+                    basePlan.phase1.steps = [
+                        {
+                            title: "Instagram Algorithm Optimization",
+                            action: "Post during peak engagement hours (7-9AM, 5-7PM local time). Use 8-15 relevant hashtags per post (mix of popular and niche). Optimize bio with clear value proposition and clickable link. Implement Stories strategy with polls and questions.",
+                            reason: "Proper timing and hashtag strategy can increase reach by 50-70% in first 24 hours",
+                            metrics: [
+                                ["Reach Increase", "50-70%"],
+                                ["Hashtag Performance", "40%+"],
+                                ["Story Engagement", "35%+"]
+                            ],
+                            tools: ["Instagram Insights", "Hashtag Research Tools", "Link-in-Bio Services"]
+                        },
+                        {
+                            title: "Content Mix & Reels Strategy",
+                            action: "Implement 4-1-1 content ratio: 4 educational/entertainment posts, 1 promotional post, 1 engagement post. Create 3-5 Reels weekly focusing on trending audio and quick value. Use carousel posts for deeper educational content.",
+                            reason: "Balanced content mix increases overall engagement by 45% and follower growth by 60%",
+                            metrics: [
+                                ["Engagement Rate", "45%+"],
+                                ["Follower Growth", "60%+"],
+                                ["Reels Views", "200%+"]
+                            ],
+                            tools: ["Instagram Reels", "Canva", "Trending Audio Research"]
+                        }
+                    ];
+                    
+                    basePlan.phase2.steps = [
+                        {
+                            title: "Collaboration & Shoutout Strategy",
+                            action: "Identify complementary accounts for story takeovers and collaboration posts. Participate in engagement groups strategically. Run giveaways with partner accounts requiring follows and tags. Use Instagram Live for Q&A sessions with other creators.",
+                            reason: "Strategic collaborations can drive 50-80% follower growth and increase engagement by 35%",
+                            metrics: [
+                                ["Follower Growth", "50-80%"],
+                                ["Collaboration Reach", "65%+"],
+                                ["Live Engagement", "40%+"]
+                            ],
+                            tools: ["Engagement Groups", "Collaboration Management", "Giveaway Platforms"]
+                        },
+                        {
+                            title: "Instagram Shopping & Lead Generation",
+                            action: "Set up Instagram Shopping if applicable. Use lead generation forms in Stories. Create valuable freebies to grow email list. Implement DM automation for frequently asked questions.",
+                            reason: "Proper monetization setup can generate 20-30% of total business revenue through Instagram",
+                            metrics: [
+                                ["Lead Generation", "25%+"],
+                                ["Sales Conversion", "3-5%"],
+                                ["Email List Growth", "15%+"]
+                            ],
+                            tools: ["Instagram Shopping", "Lead Ads", "Email Marketing Integration"]
+                        }
+                    ];
+                    
+                    basePlan.phase3.steps = [
+                        {
+                            title: "Advanced Analytics & Automation",
+                            action: "Implement advanced tracking with UTM parameters. Use analytics to identify top-performing content themes. Automate posting schedule and engagement responses. Develop content repurposing system across platforms.",
+                            reason: "Data-driven strategy increases content performance by 60% and saves 10+ hours weekly",
+                            metrics: [
+                                ["Content Performance", "60%+"],
+                                ["Time Savings", "10+ hours/week"],
+                                ["ROI Tracking", "Fully implemented"]
+                            ],
+                            tools: ["Analytics Platforms", "Scheduling Tools", "Automation Software"]
+                        },
+                        {
+                            title: "Brand Partnerships & Scaling",
+                            action: "Create media kit with audience demographics and engagement rates. Pitch brands aligned with your values and audience. Negotiate long-term partnerships vs one-off posts. Develop affiliate marketing strategy with tracking.",
+                            reason: "Strategic brand partnerships can increase monthly revenue by 200-400% for qualified accounts",
+                            metrics: [
+                                ["Partnership Revenue", "200-400%"],
+                                ["Brand Deal Quality", "Strategic partners"],
+                                ["Affiliate Income", "15%+ of revenue"]
+                            ],
+                            tools: ["Media Kit Templates", "Pitch Decks", "Affiliate Tracking"]
+                        }
+                    ];
+                }
+                else if (platform === 'tiktok') {
+                    basePlan.phase1.steps = [
+                        {
+                            title: "TikTok Algorithm Mastery",
+                            action: "Post 3-5 times daily during peak hours (11AM-2PM, 7-10PM). Use trending sounds within first 6 hours of trending. Implement strong hooks in first 3 seconds. Create content clusters around popular topics in your niche.",
+                            reason: "Consistent posting with trending elements can increase views by 300-500% in first month",
+                            metrics: [
+                                ["View Increase", "300-500%"],
+                                ["Follower Growth", "200%+"],
+                                ["Trend Participation", "80%+ posts"]
+                            ],
+                            tools: ["TikTok Creative Center", "Trend Discovery", "Video Editing Apps"]
+                        },
+                        {
+                            title: "Content Strategy & Virality Framework",
+                            action: "Follow the 80/20 rule: 80% entertainment/education, 20% promotion. Create series content to build anticipation. Use text overlays for silent viewing. Implement duet and stitch strategies with larger creators.",
+                            reason: "Strategic content framework increases viral potential by 400% and follower retention by 60%",
+                            metrics: [
+                                ["Viral Rate", "400%+"],
+                                ["Series Completion", "45%+"],
+                                ["Follower Retention", "60%+"]
+                            ],
+                            tools: ["Content Planning", "Series Framework", "Engagement Analysis"]
+                        }
+                    ];
+                    
+                    basePlan.phase2.steps = [
+                        {
+                            title: "TikTok LIVE & Community Building",
+                            action: "Host weekly LIVE sessions focusing on Q&A and behind-the-scenes. Use LIVE gifts and donations as revenue stream. Create TikTok challenges for your niche. Build email list through TikTok lead generation.",
+                            reason: "LIVE sessions can generate 30-50% of total TikTok revenue and increase engagement by 70%",
+                            metrics: [
+                                ["LIVE Revenue", "30-50% of total"],
+                                ["Community Engagement", "70%+"],
+                                ["Email List Growth", "20%+"]
+                            ],
+                            tools: ["TikTok LIVE", "Lead Generation", "Community Management"]
+                        },
+                        {
+                            title: "Cross-Platform Growth Strategy",
+                            action: "Repurpose top TikTok content to Instagram Reels and YouTube Shorts. Use TikTok to drive traffic to other platforms. Create platform-specific content variations. Implement unified branding across all platforms.",
+                            reason: "Cross-platform strategy can increase overall audience by 150% and platform security by eliminating single-platform dependency",
+                            metrics: [
+                                ["Total Audience Growth", "150%+"],
+                                ["Cross-Platform Traffic", "35%+"],
+                                ["Brand Consistency", "Unified presence"]
+                            ],
+                            tools: ["Content Repurposing", "Cross-Platform Analytics", "Brand Guidelines"]
+                        }
+                    ];
+                    
+                    basePlan.phase3.steps = [
+                        {
+                            title: "TikTok Creator Marketplace & Monetization",
+                            action: "Join TikTok Creator Marketplace for brand deals. Develop affiliate marketing strategy with TikTok-specific tracking. Create and sell digital products to your audience. Explore TikTok's emerging monetization features.",
+                            reason: "Proper monetization setup can generate $1,000-5,000 monthly for accounts with 50k+ engaged followers",
+                            metrics: [
+                                ["Monthly Revenue", "$1,000-5,000"],
+                                ["Brand Deal Value", "Increasing rates"],
+                                ["Product Sales", "Sustainable income"]
+                            ],
+                            tools: ["Creator Marketplace", "Affiliate Programs", "Digital Product Platforms"]
+                        },
+                        {
+                            title: "Scaling & Team Development",
+                            action: "Hire video editor for consistent content production. Develop content approval workflows. Implement analytics-driven content strategy. Build management system for brand partnerships.",
+                            reason: "Team development enables 300% content output increase while maintaining quality and strategic focus",
+                            metrics: [
+                                ["Content Output", "300%+"],
+                                ["Team Efficiency", "Scalable systems"],
+                                ["Partnership Management", "Professionalized"]
+                            ],
+                            tools: ["Team Management", "Workflow Systems", "Partnership CRM"]
+                        }
+                    ];
+                }
+
+                return basePlan;
+            }
+
+            // Simple hash function for consistent results
+            function hashCode(str) {
+                let hash = 0;
+                for (let i = 0; i < str.length; i++) {
+                    const char = str.charCodeAt(i);
+                    hash = ((hash << 5) - hash) + char;
+                    hash = hash & hash; // Convert to 32bit integer
+                }
+                return Math.abs(hash);
+            }
+
+            // Seeded random number generator
+            function createSeededRandom(seed) {
+                return function() {
+                    seed = (seed * 9301 + 49297) % 233280;
+                    return seed / 233280;
                 };
             }
 
             // Display analysis results
             function displayAnalysisResults(analysis, profileUrl) {
                 // Update report title
-                const username = extractUsername(profileUrl, 'youtube');
+                const username = extractUsername(profileUrl, analysis.platform);
                 document.getElementById('report-title').textContent = 
-                    `YouTube Professional Analysis: ${username}`;
+                    `${analysis.platform.charAt(0).toUpperCase() + analysis.platform.slice(1)} Professional Analysis: ${username}`;
 
                 // Update health score
                 updateHealthScore(analysis.profile_score);
                 
                 // Update key takeaways
-                updateKeyTakeaways(analysis.strengths, analysis.weaknesses);
+                updateKeyTakeaways(analysis.strengths, analysis.weaknesses, analysis.platform);
                 
                 // Update metrics table
-                updateMetricsTable(analysis.metrics);
+                updateMetricsTable(analysis.metrics, analysis.platform);
                 
                 // Update growth plan
                 updateGrowthPlan(analysis.growth_strategy);
@@ -1035,27 +1599,21 @@
 
             // Helper functions
             function extractUsername(profileUrl, platform) {
-                if (profileUrl.includes('youtube.com/c/')) {
-                    return '@' + profileUrl.split('/c/')[1];
-                }
-                if (profileUrl.includes('youtube.com/@')) {
-                    return '@' + profileUrl.split('/@')[1];
-                }
-                if (profileUrl.includes('youtube.com/channel/')) {
-                    return 'Channel: ' + profileUrl.split('/channel/')[1];
-                }
-                
                 try {
                     const urlObj = new URL(profileUrl);
                     const pathParts = urlObj.pathname.split('/').filter(part => part);
                     if (pathParts.length > 0) {
                         let username = pathParts[pathParts.length - 1];
-                        return `@${username}`;
+                        if (username) return `@${username}`;
                     }
                 } catch (e) {
-                    return '@youtube_creator';
+                    // If URL parsing fails, try simple extraction
+                    const matches = profileUrl.match(/(?:\.com\/|\.com\/@)([^\/?]+)/);
+                    if (matches && matches[1]) {
+                        return `@${matches[1]}`;
+                    }
                 }
-                return '@youtube_channel';
+                return `@${platform}_creator`;
             }
 
             function updateHealthScore(score) {
@@ -1073,7 +1631,7 @@
                 
                 let text = '';
                 if (score >= 80) {
-                    text = 'Excellent Performance - YouTube Leader';
+                    text = 'Excellent Performance - Platform Leader';
                 } else if (score >= 70) {
                     text = 'Strong Performance - Competitive Edge';
                 } else if (score >= 60) {
@@ -1088,18 +1646,18 @@
                 scoreText.style.color = color;
             }
 
-            function updateKeyTakeaways(strengths, weaknesses) {
+            function updateKeyTakeaways(strengths, weaknesses, platform) {
                 const takeawaysContainer = document.getElementById('key-takeaways');
                 
                 takeawaysContainer.innerHTML = `
                     <div class="takeaway-card strength">
-                        <h3><span class="icon">✓</span> YouTube Strengths</h3>
+                        <h3><span class="icon">✓</span> ${platform.charAt(0).toUpperCase() + platform.slice(1)} Strengths</h3>
                         <ul>
                             ${strengths.map(strength => `<li>${strength}</li>`).join('')}
                         </ul>
                     </div>
                     <div class="takeaway-card weakness">
-                        <h3><span class="icon">⚠</span> YouTube Growth Opportunities</h3>
+                        <h3><span class="icon">⚠</span> Growth Opportunities</h3>
                         <ul>
                             ${weaknesses.map(weakness => `<li>${weakness}</li>`).join('')}
                         </ul>
@@ -1107,41 +1665,107 @@
                 `;
             }
 
-            function updateMetricsTable(metrics) {
+            function updateMetricsTable(metrics, platform) {
                 const metricsTableBody = document.getElementById('metrics-table-body');
                 
-                // YouTube-specific benchmarks
-                const benchmark = {
-                    engagement_rate: '4.8%',
-                    avg_views: '5,200',
-                    avg_likes: '180',
-                    retention_rate: '60%',
-                    ctr: '6.2%',
-                    subscriber_growth: '5.2%',
-                    watch_time: '55 minutes',
-                    upload_consistency: '80%',
-                    comment_engagement: '2.8%',
-                    shares_per_video: '25'
+                // Platform-specific benchmarks
+                const benchmarks = {
+                    youtube: {
+                        engagement_rate: '4.8%',
+                        avg_views: '5,200',
+                        avg_likes: '180',
+                        retention_rate: '60%',
+                        ctr: '6.2%',
+                        subscriber_growth: '5.2%',
+                        watch_time: '55 minutes',
+                        upload_consistency: '80%',
+                        comment_engagement: '2.8%',
+                        shares_per_video: '25'
+                    },
+                    instagram: {
+                        engagement_rate: '3.2%',
+                        avg_likes: '650',
+                        avg_comments: '25',
+                        reach_rate: '25%',
+                        follower_growth: '3.5%',
+                        story_views: '1,200',
+                        content_consistency: '80%',
+                        hashtag_performance: '75%',
+                        saves_per_post: '40',
+                        shares_per_post: '20'
+                    },
+                    tiktok: {
+                        engagement_rate: '6.5%',
+                        avg_views: '8,500',
+                        avg_likes: '1,200',
+                        avg_comments: '45',
+                        follower_growth: '6.2%',
+                        video_completion_rate: '75%',
+                        content_consistency: '70%',
+                        hashtag_performance: '80%',
+                        shares_per_video: '60',
+                        trend_participation: '75%'
+                    }
                 };
                 
-                const metricsConfig = [
-                    { label: 'Engagement Rate', key: 'engagement_rate', format: 'percent' },
-                    { label: 'Average Views', key: 'avg_views', format: 'number' },
-                    { label: 'Average Likes', key: 'avg_likes', format: 'number' },
-                    { label: 'Audience Retention', key: 'retention_rate', format: 'percent' },
-                    { label: 'Click-Through Rate', key: 'ctr', format: 'percent' },
-                    { label: 'Subscriber Growth', key: 'subscriber_growth', format: 'percent' },
-                    { label: 'Avg Watch Time', key: 'watch_time', format: 'text' },
-                    { label: 'Upload Consistency', key: 'upload_consistency', format: 'percent' },
-                    { label: 'Comment Engagement', key: 'comment_engagement', format: 'percent' },
-                    { label: 'Shares Per Video', key: 'shares_per_video', format: 'number' }
-                ];
+                const benchmark = benchmarks[platform] || benchmarks.youtube;
+                
+                // Platform-specific metric labels
+                const metricLabels = {
+                    youtube: [
+                        { label: 'Engagement Rate', key: 'engagement_rate', format: 'percent' },
+                        { label: 'Average Views', key: 'avg_views', format: 'number' },
+                        { label: 'Average Likes', key: 'avg_likes', format: 'number' },
+                        { label: 'Audience Retention', key: 'retention_rate', format: 'percent' },
+                        { label: 'Click-Through Rate', key: 'ctr', format: 'percent' },
+                        { label: 'Subscriber Growth', key: 'subscriber_growth', format: 'percent' },
+                        { label: 'Avg Watch Time', key: 'watch_time', format: 'text' },
+                        { label: 'Upload Consistency', key: 'upload_consistency', format: 'percent' },
+                        { label: 'Comment Engagement', key: 'comment_engagement', format: 'percent' },
+                        { label: 'Shares Per Video', key: 'shares_per_video', format: 'number' }
+                    ],
+                    instagram: [
+                        { label: 'Engagement Rate', key: 'engagement_rate', format: 'percent' },
+                        { label: 'Average Likes', key: 'avg_likes', format: 'number' },
+                        { label: 'Average Comments', key: 'avg_comments', format: 'number' },
+                        { label: 'Reach Rate', key: 'reach_rate', format: 'percent' },
+                        { label: 'Follower Growth', key: 'follower_growth', format: 'percent' },
+                        { label: 'Story Views', key: 'story_views', format: 'number' },
+                        { label: 'Content Consistency', key: 'content_consistency', format: 'percent' },
+                        { label: 'Hashtag Performance', key: 'hashtag_performance', format: 'percent' },
+                        { label: 'Saves Per Post', key: 'saves_per_post', format: 'number' },
+                        { label: 'Shares Per Post', key: 'shares_per_post', format: 'number' }
+                    ],
+                    tiktok: [
+                        { label: 'Engagement Rate', key: 'engagement_rate', format: 'percent' },
+                        { label: 'Average Views', key: 'avg_views', format: 'number' },
+                        { label: 'Average Likes', key: 'avg_likes', format: 'number' },
+                        { label: 'Average Comments', key: 'avg_comments', format: 'number' },
+                        { label: 'Follower Growth', key: 'follower_growth', format: 'percent' },
+                        { label: 'Video Completion Rate', key: 'video_completion_rate', format: 'percent' },
+                        { label: 'Content Consistency', key: 'content_consistency', format: 'percent' },
+                        { label: 'Hashtag Performance', key: 'hashtag_performance', format: 'percent' },
+                        { label: 'Shares Per Video', key: 'shares_per_video', format: 'number' },
+                        { label: 'Trend Participation', key: 'trend_participation', format: 'percent' }
+                    ]
+                };
+                
+                const metricsConfig = metricLabels[platform] || metricLabels.youtube;
                 
                 let html = '';
                 metricsConfig.forEach(item => {
                     const currentValue = metrics[item.key];
                     const benchmarkValue = benchmark[item.key];
-                    const trend = Math.random() > 0.5 ? 'up' : (Math.random() > 0.5 ? 'down' : 'neutral');
+                    
+                    // Determine trend based on comparison with benchmark
+                    let trend = 'neutral';
+                    if (item.format === 'percent' || item.format === 'number') {
+                        const currentNum = parseFloat(currentValue);
+                        const benchmarkNum = parseFloat(benchmarkValue);
+                        if (currentNum > benchmarkNum * 1.1) trend = 'up';
+                        else if (currentNum < benchmarkNum * 0.9) trend = 'down';
+                    }
+                    
                     const trendClass = `trend-${trend}`;
                     const trendSymbol = trend === 'up' ? '↗' : (trend === 'down' ? '↘' : '→');
                     
@@ -1171,16 +1795,34 @@
             function updateGrowthPlan(growthStrategy) {
                 const growthPlanContent = document.getElementById('growth-plan-content');
                 
-                let html = '';
+                let html = `
+                    <div class="growth-plan-header">
+                        <h3>Strategic Growth Roadmap</h3>
+                        <p>This 12-week plan provides actionable steps to systematically grow your social media presence with measurable outcomes at each phase.</p>
+                    </div>
+                `;
+                
                 Object.keys(growthStrategy).forEach(phaseKey => {
                     const phase = growthStrategy[phaseKey];
                     html += `
                         <div class="phase">
                             <div class="phase-header">
                                 <div class="phase-number">${phaseKey.replace('phase', '')}</div>
-                                <h3 class="phase-title">${phase.title}</h3>
-                                <div class="phase-timeline">${phase.timeline}</div>
+                                <div class="phase-title-content">
+                                    <h3 class="phase-title">${phase.title}</h3>
+                                    <div class="phase-timeline">${phase.timeline}</div>
+                                </div>
                             </div>
+                            
+                            <div class="phase-objectives">
+                                <h4>📋 Phase Objectives</h4>
+                                <div class="objectives-list">
+                                    ${phase.objectives.map(objective => `
+                                        <div class="objective">${objective}</div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                            
                             <div class="steps">
                                 ${phase.steps.map((step, index) => `
                                     <div class="step">
@@ -1190,14 +1832,37 @@
                                         </div>
                                         <div class="step-content">
                                             <div class="step-action">
-                                                <h4>Strategic Action</h4>
+                                                <h4>🎯 Action Plan</h4>
                                                 <p>${step.action}</p>
                                             </div>
                                             <div class="step-reason">
-                                                <h4>Business Impact</h4>
+                                                <h4>💡 Strategic Rationale</h4>
                                                 <p>${step.reason}</p>
                                             </div>
                                         </div>
+                                        ${step.metrics ? `
+                                        <div class="metrics-impact">
+                                            <h4>📊 Expected Impact</h4>
+                                            <div class="metrics-list">
+                                                ${step.metrics.map(metric => `
+                                                    <div class="metric-item">
+                                                        <span class="metric-name">${metric[0]}</span>
+                                                        <span class="metric-value">${metric[1]}</span>
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                        </div>
+                                        ` : ''}
+                                        ${step.tools ? `
+                                        <div class="tools-resources">
+                                            <h4>🛠️ Recommended Tools</h4>
+                                            <div class="tools-list">
+                                                ${step.tools.map(tool => `
+                                                    <div class="tool-item">${tool}</div>
+                                                `).join('')}
+                                            </div>
+                                        </div>
+                                        ` : ''}
                                     </div>
                                 `).join('')}
                             </div>
